@@ -43,7 +43,7 @@ jobs:
       run: dotnet publish -c Release -f:net6.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=false --no-restore
     
     - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v3.1.0
+      uses: actions/upload-artifact@v3
       with:
         Name: Windows Build
         path: .\**\AppPackages\**\*_x64.msix
@@ -83,7 +83,7 @@ jobs:
           dotnet build -f net6.0-maccatalyst15.4 -c Release --no-restore -o ./artifacts
           dotnet publish -f net6.0-maccatalyst15.4 -c Release -p:BuildIpa=True --no-restore -o ./artifacts
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: Mac Build
           path: ./artifacts/**/*.pkg
