@@ -15,16 +15,23 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+        
     - name: Install MAUI workload
       run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
+      
     - name: Build
       run: dotnet publish -c Release -f:net6.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=false
+    
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3.1.0
       with:
-        path: .\**\AppPackages\**\*.*
+        path: .\**\AppPackages\**\*_x64.msix
