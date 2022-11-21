@@ -4,8 +4,27 @@
              x:Class="NftHigherOrLowerGame.Pages.GamePage"
              Title="GamePage"
              BackgroundColor="DarkOrange">
-    <HorizontalStackLayout HorizontalOptions="Center">
-        <Label Text="Test" VerticalOptions="Center"/>
-        <Label Text="Test2"/>
-    </HorizontalStackLayout>
+    <Frame BorderColor="LightGray"
+       HasShadow="True"
+       CornerRadius="0">
+        <Frame.Background>
+            <!-- StartPoint defaults to (0,0) -->
+            <LinearGradientBrush EndPoint="1,0">
+                <GradientStop Color="Yellow"
+                  Offset="0.0" />
+                <GradientStop Color="Red"
+                  Offset="0.25" />
+                <GradientStop Color="Blue"
+                  Offset="0.75" />
+                <GradientStop Color="LimeGreen"
+                  Offset="1.0" />
+            </LinearGradientBrush>
+        </Frame.Background>
+        <HorizontalStackLayout HorizontalOptions="Center">
+
+            <Label Text="Test" VerticalOptions="Center"/>
+            <Label Text="Test2"/>
+        </HorizontalStackLayout>
+    </Frame>
+    
 </ContentPage>
