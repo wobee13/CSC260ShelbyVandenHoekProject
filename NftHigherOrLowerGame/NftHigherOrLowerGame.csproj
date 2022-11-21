@@ -12,10 +12,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>NftHigherOrLowerGame</ApplicationTitle>
+		<ApplicationTitle>Nft Higher or Lower Game</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.nfthigherorlowergame</ApplicationId>
+		<ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
 		<ApplicationIdGuid>9e2fc007-95e5-4bc2-8b16-61f2cda5183c</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -38,6 +38,30 @@
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios15.7|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-android|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-maccatalyst15.4|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-maccatalyst15.4|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios16.0|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-ios16.0|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>xyz.shelbyvandenhoek.nfthigherorlowergame</ApplicationId>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -65,9 +89,15 @@
 	  <None Remove="supabase-csharp" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Pages\" />
-	</ItemGroup>
-	<ItemGroup>
+	  <MauiXaml Update="Components\NftImage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\ScoreBoard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\Timer.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\MainPage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
@@ -76,6 +106,7 @@
 	  </MauiXaml>
 	</ItemGroup>
 	<ItemGroup>
+	  <PackageReference Include="Blurhash.SkiaSharp" Version="2.0.0" />
 	  <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.0">
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	    <PrivateAssets>all</PrivateAssets>
@@ -85,8 +116,6 @@
 	    <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	  <PackageReference Include="Blurhash.System.Drawing.Common" Version="2.2.0" />
-	  <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
 	  <PackageReference Include="supabase-csharp" Version="0.6.1" />
 	</ItemGroup>
 	<ItemGroup>

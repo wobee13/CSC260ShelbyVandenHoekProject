@@ -1,4 +1,7 @@
-﻿namespace NftHigherOrLowerGame.Pages;
+﻿using Blurhash.SkiaSharp;
+using SkiaSharp;
+
+namespace NftHigherOrLowerGame.Pages;
 
 public partial class MainPage : ContentPage
 {
@@ -17,8 +20,17 @@ public partial class MainPage : ContentPage
 			CounterBtn.Text = $"Clicked {count} time";
 		else
 			CounterBtn.Text = $"Clicked {count} times";
+        // decode blurhash instring into a SKBitmap
+        var im = Blurhasher.Decode("LEHV6nWB2yk8pyo0adR*.7kCMdnj", 4, 3);
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+        // load it into a SKImage
+        var data = SKImage.FromBitmap(im).Encode();
+
+        // use as a source for Image control
+		
+        image1.Source = ImageSource.FromStream(data.AsStream);
+
+        SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 }
 

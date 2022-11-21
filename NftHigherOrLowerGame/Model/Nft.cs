@@ -13,7 +13,13 @@ namespace NftHigherOrLowerGame.Model
         public int Id { get; }
         public string BlurHash { get; }
         public string ImageURL { get; }
+        public double PriceUSD { get; }
+        public double PriceETH { get; }
 
+        public Nft()
+        {
+
+        }
 
     }
 }

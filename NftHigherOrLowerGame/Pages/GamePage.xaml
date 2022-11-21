@@ -1,29 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components"
              x:Class="NftHigherOrLowerGame.Pages.GamePage"
-             Title="GamePage"
-             BackgroundColor="DarkOrange">
-    <Frame BorderColor="LightGray"
+             Title="GamePage">
+    <Frame BorderColor="Green"
        HasShadow="True"
        CornerRadius="0">
         <Frame.Background>
             <!-- StartPoint defaults to (0,0) -->
-            <LinearGradientBrush EndPoint="1,0">
-                <GradientStop Color="Yellow"
-                  Offset="0.0" />
-                <GradientStop Color="Red"
-                  Offset="0.25" />
+            <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="Blue"
-                  Offset="0.75" />
-                <GradientStop Color="LimeGreen"
+                  Offset="0.0" />
+                <GradientStop Color="Orange"
                   Offset="1.0" />
             </LinearGradientBrush>
         </Frame.Background>
+        
         <HorizontalStackLayout HorizontalOptions="Center">
+            <Components:Timer/>
+            <Components:NftImage VerticalOptions="Center"/>
+            
+            <Components:NftImage VerticalOptions="Center"/>
 
-            <Label Text="Test" VerticalOptions="Center"/>
-            <Label Text="Test2"/>
         </HorizontalStackLayout>
     </Frame>
     
