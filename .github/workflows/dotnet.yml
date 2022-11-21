@@ -11,8 +11,10 @@ on:
 
 jobs:
   Build_Windows:
-
     runs-on: windows-latest
+    
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
     steps:
     - name: Checkout
@@ -31,10 +33,10 @@ jobs:
     - name: Package Cache
       uses: actions/cache@v3
       with:
-        path: ~/.nuget/packages
+        path: ${{ github.workspace }}/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
         restore-keys: |
-          ${{ runner.os }}-nuget  
+          ${{ runner.os }}-nuget
     
     - name: Restore Packages
       run: dotnet restore
@@ -51,6 +53,9 @@ jobs:
         
   Build_Mac:
     runs-on: macos-latest
+  
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
     
     steps:
       - name: Checkout
@@ -69,7 +74,7 @@ jobs:
       - name: Package Cache
         uses: actions/cache@v3
         with:
-          path: ~/.nuget/packages
+          path: ${{ github.workspace }}/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
           restore-keys: |
             ${{ runner.os }}-nuget  
@@ -83,7 +88,8 @@ jobs:
           dotnet build -f net6.0-maccatalyst15.4 -c Release --no-restore -o ./artifacts
           dotnet publish -f net6.0-maccatalyst15.4 -c Release -p:BuildIpa=True --no-restore -o ./artifacts
 
-      - uses: actions/upload-artifact@v3
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: Mac Build
           path: ./artifacts/**/*.pkg
