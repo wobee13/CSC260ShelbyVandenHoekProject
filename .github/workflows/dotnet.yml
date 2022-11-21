@@ -1,0 +1,89 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET MAUI Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  Build_Windows:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Install MAUI workload
+      run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
+    
+    - name: Package Cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget  
+    
+    - name: Restore Packages
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet publish -c Release -f:net6.0-windows10.0.19041.0 /p:GenerateAppxPackageOnBuild=true /p:AppxPackageSigningEnabled=false --no-restore
+    
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        Name: Windows Build
+        path: .\**\AppPackages\**\*_x64.msix
+        
+        
+  Build_Mac:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+          
+      - name: Install MAUI workload
+        run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
+    
+      - name: Package Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget  
+    
+      - name: Restore Packages
+        run: dotnet restore
+        
+      # https://docs.microsoft.com/en-us/dotnet/maui/macos/deployment/overview
+      - name : Build MacCatalyst App
+        run: |
+          dotnet build -f net6.0-maccatalyst15.4 -c Release --no-restore -o ./artifacts
+          dotnet publish -f net6.0-maccatalyst15.4 -c Release -p:BuildIpa=True --no-restore -o ./artifacts
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Mac Build
+          path: ./artifacts/**/*.pkg
