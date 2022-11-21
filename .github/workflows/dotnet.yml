@@ -12,10 +12,6 @@ on:
 jobs:
   Build_Windows:
     runs-on: windows-latest
-    
-    env:
-      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
-
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -27,13 +23,13 @@ jobs:
       with:
         dotnet-version: 6.0.x
         
-    - name: Install MAUI workload
-      run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
+    #- name: Install MAUI workload
+    #  run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
     
     - name: Package Cache
       uses: actions/cache@v3
       with:
-        path: ${{ github.workspace }}/.nuget/packages
+        path: ~/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
         restore-keys: |
           ${{ runner.os }}-nuget
@@ -53,10 +49,6 @@ jobs:
         
   Build_Mac:
     runs-on: macos-latest
-  
-    env:
-      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -74,7 +66,7 @@ jobs:
       - name: Package Cache
         uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/.nuget/packages
+          path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
           restore-keys: |
             ${{ runner.os }}-nuget  
