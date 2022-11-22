@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components"
+             x:Class="NftHigherOrLowerGame.Components.TopControls">
+    <FlexLayout JustifyContent="SpaceBetween">
+        <Components:ScoreBoard FlexLayout.Basis="20%"/>
+        <Components:Timer FlexLayout.Basis="50%"/>
+        <Components:PauseMenu FlexLayout.Basis="20%"/>
+    </FlexLayout>
+</ContentView>

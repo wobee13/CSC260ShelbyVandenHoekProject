@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NftHigherOrLowerGame.Components.Timer">
     <VerticalStackLayout>
-        <ActivityIndicator Color="Red" IsRunning="True"/>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="10 Seconds"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            />
+        <ProgressBar Progress="0.7" />
     </VerticalStackLayout>
 </ContentView>

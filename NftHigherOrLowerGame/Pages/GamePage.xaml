@@ -4,26 +4,41 @@
              xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components"
              x:Class="NftHigherOrLowerGame.Pages.GamePage"
              Title="GamePage">
-    <Frame BorderColor="Green"
+    <!--<Frame BorderColor="Green"
        HasShadow="True"
        CornerRadius="0">
         <Frame.Background>
-            <!-- StartPoint defaults to (0,0) -->
-            <LinearGradientBrush EndPoint="0,1">
+            <LinearGradientBrush EndPoint="1,0">
                 <GradientStop Color="Blue"
                   Offset="0.0" />
                 <GradientStop Color="Orange"
                   Offset="1.0" />
             </LinearGradientBrush>
-        </Frame.Background>
-        
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Components:Timer/>
-            <Components:NftImage VerticalOptions="Center"/>
-            
-            <Components:NftImage VerticalOptions="Center"/>
+        </Frame.Background>-->
 
-        </HorizontalStackLayout>
-    </Frame>
-    
+    <Grid Margin="10,15">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="9*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Components:TopControls Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center"/>
+        <Components:NftImage Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Components:NftImage Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Components:BottomControls Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center"/>
+        <!--<HorizontalStackLayout>
+                
+            </HorizontalStackLayout>-->
+        <!--<HorizontalStackLayout HorizontalOptions="Center">
+                <Components:NftImage VerticalOptions="Center"/>
+                <Components:NftImage VerticalOptions="Center"/>
+            </HorizontalStackLayout>-->
+    </Grid>
+    <!--</Frame>-->
+
 </ContentPage>
