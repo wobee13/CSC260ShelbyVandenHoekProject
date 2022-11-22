@@ -77,8 +77,8 @@ jobs:
       # https://docs.microsoft.com/en-us/dotnet/maui/macos/deployment/overview
       - name : Build MacCatalyst App
         run: |
-          dotnet build -f net6.0-maccatalyst15.4 -c Release --no-restore -o ./artifacts
-          dotnet publish -f net6.0-maccatalyst15.4 -c Release -p:BuildIpa=True --no-restore -o ./artifacts
+          dotnet build -f net6.0-maccatalyst -c Release --no-restore -o ./artifacts
+          dotnet publish -f net6.0-maccatalyst -c Release -p:BuildIpa=True --no-restore -o ./artifacts
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
