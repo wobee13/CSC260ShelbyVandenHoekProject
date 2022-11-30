@@ -101,7 +101,7 @@
 	  <MauiXaml Update="Components\ScoreBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Components\Timer.xaml">
+	  <MauiXaml Update="Components\GameTimer.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Components\TopControls.xaml">
@@ -121,5 +121,10 @@
 	    <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
 	  <PackageReference Include="supabase-csharp" Version="0.6.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Components\GameTimer.xaml.cs">
+	    <DependentUpon>GameTimer.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 </Project>

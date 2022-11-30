@@ -5,7 +5,7 @@
              x:Class="NftHigherOrLowerGame.Components.TopControls">
     <FlexLayout JustifyContent="SpaceBetween">
         <Components:ScoreBoard FlexLayout.Basis="20%"/>
-        <Components:Timer FlexLayout.Basis="50%"/>
+        <Components:GameTimer FlexLayout.Basis="50%"/>
         <Components:PauseMenu FlexLayout.Basis="20%"/>
     </FlexLayout>
 </ContentView>

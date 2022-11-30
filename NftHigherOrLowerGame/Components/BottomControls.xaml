@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NftHigherOrLowerGame.Components.BottomControls">
     <FlexLayout JustifyContent="SpaceEvenly">
-        <Button Text="Higher" FlexLayout.Basis="25%"/>
+        <Button Text="Higher" FlexLayout.Basis="25%" Clicked="Higher_Button_Click"/>
         <Button Text="OR" IsEnabled="False" FlexLayout.Basis="Auto"/>
-        <Button Text="Lower" FlexLayout.Basis="25%"/>
+        <Button Text="Lower" FlexLayout.Basis="25%" Clicked="Lower_Button_Click"/>
     </FlexLayout>
 </ContentView>
