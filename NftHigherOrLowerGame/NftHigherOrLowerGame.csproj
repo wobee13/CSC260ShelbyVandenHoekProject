@@ -116,21 +116,10 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Blurhash.SkiaSharp" Version="2.0.0" />
-	  <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.0">
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	    <PrivateAssets>all</PrivateAssets>
-	  </PackageReference>
 	  <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.0">
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	    <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	  <PackageReference Include="supabase-csharp" Version="0.6.2" />
-	</ItemGroup>
-	<ItemGroup>
-	  <BundleResource Include="OpenAPIs\swagger.json">
-	    <CodeGenerator>NSwagCSharp</CodeGenerator>
-	    <SourceUri>https://knddzfdbybulsywhyrvt.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuZGR6ZmRieWJ1bHN5d2h5cnZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDUyMDE1NDMsImV4cCI6MTk2MDc3NzU0M30.gruYB1hgInt484DqZ_0xP86cX0h0HzHc1HYFoYkrxU0</SourceUri>
-	  </BundleResource>
 	</ItemGroup>
 </Project>
