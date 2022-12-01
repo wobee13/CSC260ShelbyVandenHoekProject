@@ -1,10 +1,5 @@
 ﻿using NftHigherOrLowerGame.Components;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NftHigherOrLowerGame.Model
 {
@@ -18,7 +13,10 @@ namespace NftHigherOrLowerGame.Model
             GameTime.Start();
         }
 
-        public static void StopTimer() { }
+        public static void StopTimer()
+        {
+            GameTime.Stop();
+        }
 
         public static void Higher()
         {

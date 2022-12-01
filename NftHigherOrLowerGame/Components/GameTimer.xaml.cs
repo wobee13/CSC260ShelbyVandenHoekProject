@@ -1,4 +1,5 @@
 using NftHigherOrLowerGame.Model;
+using System.Diagnostics;
 
 namespace NftHigherOrLowerGame.Components;
 
@@ -7,6 +8,7 @@ public partial class GameTimer : ContentView
     private const uint _StartTime = 10;
     private uint _TimerValue = _StartTime;
     private bool _TimerRunning = false;
+    private PeriodicTimer _TimerInstance;
 
     public uint TimeValue
     {
@@ -14,7 +16,7 @@ public partial class GameTimer : ContentView
         set
         {
             _TimerValue = value;
-            Update();
+            TimerLabel.Text = $"{TimeValue} Seconds";
         }
     }
 
@@ -24,28 +26,38 @@ public partial class GameTimer : ContentView
         Game.RegisterTimer(this);
     }
 
-    public void Update()
-    {
-        TimerLabel.Text = $"{TimeValue} Seconds";
-    }
-
     public async void Start()
     {
         if (_TimerRunning == false)
         {
             _TimerRunning = true;
-            var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+            _TimerInstance = new PeriodicTimer(TimeSpan.FromSeconds(1));
             TimeValue = _StartTime;
-            _ = TimerBar.ProgressTo(0, TimeValue * 1000, Easing.SinInOut); // Maybe Change Easing
-            while (await timer.WaitForNextTickAsync())
+            TimerLabel.IsVisible = true;
+            TimerBar.IsVisible = true;
+            while (await _TimerInstance.WaitForNextTickAsync())
             {
                 TimeValue -= 1;
+                _ = TimerBar.ProgressTo(((double)TimeValue / (double)_StartTime), 1000, Easing.SinInOut);
                 if (TimeValue == 0)
                 {
-                    timer.Dispose();
+                    _TimerInstance.Dispose();
                     _TimerRunning = false;
+                    _TimerInstance = null;
+                    break;
                 }
             }
+        }
+    }
+
+    public void Stop()
+    {
+        if (_TimerInstance != null)
+        {
+            TimeValue = 1;
+            TimerLabel.IsVisible = false;
+            TimerBar.IsVisible = false;
+            TimerBar.Progress = 1;
         }
     }
 }
