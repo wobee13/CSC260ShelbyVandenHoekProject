@@ -1,5 +1,4 @@
 using NftHigherOrLowerGame.Model;
-using System.Diagnostics;
 
 namespace NftHigherOrLowerGame.Components;
 
