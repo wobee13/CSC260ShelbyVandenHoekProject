@@ -35,9 +35,7 @@ namespace NftHigherOrLowerGame.Model
         {
             if (_NFTCount == 0) { await FetchNFTCount(); }
             int id = Random.Shared.Next(_NFTCount);
-            Debug.WriteLine(id);
             var response = await _Client.From<NFT>().Filter("id", Postgrest.Constants.Operator.Equals, id).Get();
-            Debug.WriteLine(response.Models.First().Name);
             var nft = response.Models.First();
             return nft;
         }

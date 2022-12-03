@@ -28,8 +28,8 @@
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
         <Components:TopControls Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center"/>
-        <Components:NftImage x:Name="LeftNft"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Components:NftImage x:Name="RightNft" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Components:NFTImage x:Name="LeftNFT"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+        <Components:NFTImage x:Name="RightNFT" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
         <Components:BottomControls Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center"/>
         <!--<HorizontalStackLayout>
                 

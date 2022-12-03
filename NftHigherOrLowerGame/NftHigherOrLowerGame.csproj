@@ -92,7 +92,7 @@
 	  <MauiXaml Update="Components\BottomControls.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Components\NftImage.xaml">
+	  <MauiXaml Update="Components\NFTImage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Components\PauseMenu.xaml">
@@ -125,6 +125,9 @@
 	<ItemGroup>
 	  <Compile Update="Components\GameTimer.xaml.cs">
 	    <DependentUpon>GameTimer.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\NFTImage.xaml.cs">
+	    <DependentUpon>NFTImage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 </Project>
