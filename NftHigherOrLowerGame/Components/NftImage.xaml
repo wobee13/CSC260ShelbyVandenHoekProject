@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NftHigherOrLowerGame.Components.NFTImage"
-             x:Name="this">
-    <VerticalStackLayout>
-        <Frame 
-            x:Name="ImageFrame"
-            Opacity="0"
-            CornerRadius="30"
-            IsClippedToBounds="True"
-            Padding="0">
-            <Image 
+<ContentView
+    x:Class="NftHigherOrLowerGame.Components.NFTImage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this">
+    <Frame
+        x:Name="ImageFrame"
+        Margin="0"
+        Padding="0"
+        BorderColor="Transparent"
+        CornerRadius="40"
+        HeightRequest="350"
+        IsClippedToBounds="True"
+        Opacity="0"
+        WidthRequest="350">
+        <Grid RowDefinitions="6*,*" RowSpacing="0">
+            <Image
                 x:Name="Image"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-            />
-        </Frame>
-        <Label 
-            x:Name="NameLabel"
-            Text="Doodles #500"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            x:Name="PriceLabel"
-            Text="$ 500"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Aspect="Fill"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+            <StackLayout
+                Grid.Row="1"
+                BackgroundColor="#bf52463d"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Label
+                    x:Name="NameLabel"
+                    HorizontalOptions="Center"
+                    Text=""
+                    TextColor="White"
+                    VerticalOptions="End" />
+                <Label
+                    x:Name="PriceLabel"
+                    HorizontalOptions="Center"
+                    Text=""
+                    TextColor="White"
+                    VerticalOptions="End" />
+            </StackLayout>
+        </Grid>
+    </Frame>
 </ContentView>

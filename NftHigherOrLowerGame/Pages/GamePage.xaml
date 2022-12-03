@@ -1,44 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components"
-             x:Class="NftHigherOrLowerGame.Pages.GamePage"
-             Title="GamePage">
-    <!--<Frame BorderColor="Green"
-       HasShadow="True"
-       CornerRadius="0">
-        <Frame.Background>
-            <LinearGradientBrush EndPoint="1,0">
-                <GradientStop Color="Blue"
-                  Offset="0.0" />
-                <GradientStop Color="Orange"
-                  Offset="1.0" />
-            </LinearGradientBrush>
-        </Frame.Background>-->
-
+<ContentPage
+    x:Class="NftHigherOrLowerGame.Pages.GamePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components"
+    Title="GamePage">
     <Grid Margin="10,15">
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="6*" />
             <ColumnDefinition />
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
-        <Components:TopControls Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center"/>
-        <Components:NFTImage x:Name="LeftNFT"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Components:NFTImage x:Name="RightNFT" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Components:BottomControls Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center"/>
-        <!--<HorizontalStackLayout>
-                
-            </HorizontalStackLayout>-->
-        <!--<HorizontalStackLayout HorizontalOptions="Center">
-                <Components:NftImage VerticalOptions="Center"/>
-                <Components:NftImage VerticalOptions="Center"/>
-            </HorizontalStackLayout>-->
+        <Components:TopControls
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Components:NFTImage
+            x:Name="LeftNFT"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Components:NFTImage
+            x:Name="RightNFT"
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Components:BottomControls
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
     </Grid>
-    <!--</Frame>-->
-
 </ContentPage>
