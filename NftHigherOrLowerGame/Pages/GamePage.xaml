@@ -12,9 +12,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="5*" />
             <ColumnDefinition />
-            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
         <Components:TopControls
             Grid.Row="0"
@@ -27,6 +27,12 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Components:AnswerFeedBack
+            x:Name="AnswerFeedBack"
+            Grid.Row="1"
+            Grid.Column="1"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Components:NFTImage

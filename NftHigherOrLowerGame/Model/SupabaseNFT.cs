@@ -1,6 +1,5 @@
 ﻿using NftHigherOrLowerGame.Model.DataBaseModels;
 using Supabase;
-using System.Diagnostics;
 
 namespace NftHigherOrLowerGame.Model
 {

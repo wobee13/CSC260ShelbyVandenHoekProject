@@ -29,8 +29,8 @@ public partial class NFTImage : ContentView
         return true;
     }
 
-    public void ShowPrice() { PriceLabel.FadeTo(1); }
-    public void HidePrice() { PriceLabel.FadeTo(0); }
-    public void ShowName() { NameLabel.FadeTo(1); }
-    public void HideName() { NameLabel.FadeTo(0); }
+    public void ShowPrice(uint fadeTime = 250) { PriceLabel.FadeTo(1, fadeTime); }
+    public void HidePrice(uint fadeTime = 250) { PriceLabel.FadeTo(0, fadeTime); }
+    public void ShowName(uint fadeTime = 250) { NameLabel.FadeTo(1, fadeTime); }
+    public void HideName(uint fadeTime = 250) { NameLabel.FadeTo(0, fadeTime); }
 }

@@ -89,6 +89,9 @@
 	  <None Remove="supabase-csharp" />
 	</ItemGroup>
 	<ItemGroup>
+	  <MauiXaml Update="Components\AnswerFeedBack.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Components\BottomControls.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -123,6 +126,9 @@
 	  <PackageReference Include="supabase-csharp" Version="0.6.2" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Update="Components\AnswerFeedBack.xaml.cs">
+	    <DependentUpon>AnswerFeedBack.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Components\GameTimer.xaml.cs">
 	    <DependentUpon>GameTimer.xaml</DependentUpon>
 	  </Compile>

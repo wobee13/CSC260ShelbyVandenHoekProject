@@ -4,7 +4,7 @@ namespace NftHigherOrLowerGame.Components;
 
 public partial class GameTimer : ContentView
 {
-    private const uint _StartTime = 10;
+    private const uint _StartTime = 20;
     private uint _TimerValue = _StartTime;
     private bool _TimerRunning = false;
     private PeriodicTimer _TimerInstance;
@@ -15,7 +15,7 @@ public partial class GameTimer : ContentView
         set
         {
             _TimerValue = value;
-            TimerLabel.Text = $"{TimeValue} Seconds";
+            TimerLabel.Text = $"{TimeValue} Seconds {TimeValue * 50} Points Available";
         }
     }
 
@@ -49,14 +49,16 @@ public partial class GameTimer : ContentView
         }
     }
 
-    public void Stop()
+    public int Stop()
     {
+        int pointsAtStop = (int)TimeValue * 50;
         if (_TimerInstance != null)
         {
             TimeValue = 1;
-            TimerLabel.IsVisible = false;
+            TimerLabel.IsVisible = false; // Switch to Fade
             TimerBar.IsVisible = false;
             TimerBar.Progress = 1;
         }
+        return pointsAtStop;
     }
 }

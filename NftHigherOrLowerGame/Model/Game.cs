@@ -1,18 +1,19 @@
 ﻿using NftHigherOrLowerGame.Components;
 using NftHigherOrLowerGame.Model.DataBaseModels;
-using System.Diagnostics;
 
 namespace NftHigherOrLowerGame.Model
 {
     public static class Game
     {
-        public static GameTimer GameTime { get; set; }
-        public static ScoreBoard Score { get; set; }
-        public static NFT NFTDataLeft { get; set; }
-        public static NFT NFTDataRight { get; set; }
-        public static NFT NFTDataAlt { get; set; } // Used to PreFetch Next NFT Data
-        public static NFTImage NFTImageLeft { get; set; }
-        public static NFTImage NFTImageRight { get; set; }
+        private static GameTimer GameTime { get; set; }
+        private static ScoreBoard Score { get; set; }
+        private static int Points { get; set; }
+        private static AnswerFeedBack AnswerDisplay { get; set; }
+        private static NFT NFTDataLeft { get; set; }
+        private static NFT NFTDataRight { get; set; }
+        private static NFT NFTDataAlt { get; set; } // Used to PreFetch Next NFT Data
+        private static NFTImage NFTImageLeft { get; set; }
+        private static NFTImage NFTImageRight { get; set; }
         public enum Side { Left, Right }
         public enum AnswerOptions { Higher, Lower }
 
@@ -31,7 +32,7 @@ namespace NftHigherOrLowerGame.Model
 
         private static void StopTimer() // Might Remove Functions
         {
-            GameTime.Stop();
+            Points = GameTime.Stop();
         }
 
         // Buttons
@@ -92,12 +93,15 @@ namespace NftHigherOrLowerGame.Model
 
         private static void CorrectAnswer()
         {
-
+            NFTImageRight.ShowPrice();
+            Score.ScoreValue += Points;
+            AnswerDisplay.Correct($"Earned {Points} points");
         }
 
         private static void WrongAnswer()
         {
-
+            Score.ScoreValue -= 1000;
+            AnswerDisplay.Wrong("Lost One Life and 1000 points");
         }
 
 
@@ -123,6 +127,11 @@ namespace NftHigherOrLowerGame.Model
                     NFTImageRight = nftimage;
                     break;
             }
+        }
+
+        public static void RegisterAnswerDisplay(AnswerFeedBack answer)
+        {
+            AnswerDisplay = answer;
         }
 
 
