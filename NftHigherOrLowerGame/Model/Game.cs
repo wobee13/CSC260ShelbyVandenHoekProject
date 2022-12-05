@@ -7,6 +7,7 @@ namespace NftHigherOrLowerGame.Model
     {
         private static GameTimer GameTime { get; set; }
         private static ScoreBoard Score { get; set; }
+        private static LivesBoard Lives { get; set; }
         private static int Points { get; set; }
         private static AnswerFeedBack AnswerDisplay { get; set; }
         private static NFT NFTDataLeft { get; set; }
@@ -107,8 +108,8 @@ namespace NftHigherOrLowerGame.Model
         private static void WrongAnswer()
         {
             Score.ScoreValue -= 1000;
-            Score.Lives -= 1;
-            AnswerDisplay.Wrong("Lost One Life and 1000 points");
+            Lives.LoseLife();
+            AnswerDisplay.Wrong("Lost 1 life and 1000 points");
         }
 
 
@@ -121,6 +122,11 @@ namespace NftHigherOrLowerGame.Model
         public static void RegistererScoreBoard(ScoreBoard scoreBoard)
         {
             Score = scoreBoard;
+        }
+
+        public static void RegistererLivesBoard(LivesBoard livesBoard)
+        {
+            Lives = livesBoard;
         }
 
         public static void RegisterNFTImage(NFTImage nftimage, Side side)

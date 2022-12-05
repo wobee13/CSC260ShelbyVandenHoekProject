@@ -18,32 +18,15 @@ public partial class ScoreBoard : ContentView
             {
                 _ScoreValue = value * 100;
             }
-            ScoreButton.Text = $"Score: {ScoreValue}    Lives: {Lives}";
+            ScoreButton.Text = $"Score: {ScoreValue}";
         }
     }
 
-    private uint _Lives = 3;
-    public uint Lives
-    {
-        get { return _Lives; }
-        set
-        {
-            if (value == 0)
-            {
-                _Lives = value; Game.GameOver();
-            }
-            else
-            {
-                _Lives = value;
-            }
-            ScoreButton.Text = $"Score: {ScoreValue}    Lives: {Lives}";
-        }
-    }
 
     public ScoreBoard()
     {
         InitializeComponent();
-        ScoreButton.Text = $"Score: {ScoreValue}    Lives: {Lives}";
+        ScoreValue = 0;
         Game.RegistererScoreBoard(this);
     }
 }

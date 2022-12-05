@@ -7,6 +7,7 @@
     <FlexLayout JustifyContent="SpaceBetween">
         <Components:ScoreBoard FlexLayout.Basis="20%" />
         <Components:GameTimer FlexLayout.Basis="50%" />
-        <Components:PauseMenu FlexLayout.Basis="20%" />
+        <Components:LivesBoard FlexLayout.Basis="20%" />
+        <Components:PauseMenu FlexLayout.Basis="5%" />
     </FlexLayout>
 </ContentView>
