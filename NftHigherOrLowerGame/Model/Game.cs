@@ -17,6 +17,7 @@ namespace NftHigherOrLowerGame.Model
         public enum Side { Left, Right }
         public enum AnswerOptions { Higher, Lower }
 
+        // Game State
         private static async void StartTimer()
         {
             NFTDataLeft = await SupabaseNFT.FetchRandomNFT();
@@ -33,6 +34,11 @@ namespace NftHigherOrLowerGame.Model
         private static void StopTimer() // Might Remove Functions
         {
             Points = GameTime.Stop();
+        }
+
+        public static void GameOver()
+        {
+            throw new NotImplementedException();
         }
 
         // Buttons
@@ -85,7 +91,7 @@ namespace NftHigherOrLowerGame.Model
             }
             else
             {
-                // SomeThing Went Wrong if This Happens
+                // Something went wrong if this happens
                 WrongAnswer();
             }
 
@@ -101,6 +107,7 @@ namespace NftHigherOrLowerGame.Model
         private static void WrongAnswer()
         {
             Score.ScoreValue -= 1000;
+            Score.Lives -= 1;
             AnswerDisplay.Wrong("Lost One Life and 1000 points");
         }
 

@@ -2,6 +2,7 @@
 {
     class Lives
     {
+        // Will Probably Remove
         public int Total { get; set; }
         public Lives() { }
 

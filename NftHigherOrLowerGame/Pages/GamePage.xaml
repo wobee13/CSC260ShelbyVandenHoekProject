@@ -12,9 +12,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="4*" />
             <ColumnDefinition />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
         <Components:TopControls
             Grid.Row="0"
@@ -50,3 +50,4 @@
             VerticalOptions="Center" />
     </Grid>
 </ContentPage>
+
