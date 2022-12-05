@@ -16,7 +16,7 @@ public partial class ScoreBoard : ContentView
             }
             else
             {
-                _ScoreValue = value * 100;
+                _ScoreValue = value;
             }
             ScoreButton.Text = $"Score: {ScoreValue}";
         }

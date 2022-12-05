@@ -8,7 +8,7 @@ namespace NftHigherOrLowerGame.Model
         private static GameTimer GameTime { get; set; }
         private static ScoreBoard Score { get; set; }
         private static LivesBoard Lives { get; set; }
-        private static int Points { get; set; }
+        public static int Points { get; set; }
         private static AnswerFeedBack AnswerDisplay { get; set; }
         private static NFT NFTDataLeft { get; set; }
         private static NFT NFTDataRight { get; set; }
@@ -16,10 +16,10 @@ namespace NftHigherOrLowerGame.Model
         private static NFTImage NFTImageLeft { get; set; }
         private static NFTImage NFTImageRight { get; set; }
         public enum Side { Left, Right }
-        public enum AnswerOptions { Higher, Lower }
+        public enum AnswerOptions { Higher, Lower, OutOfTime }
 
         // Game State
-        private static async void StartTimer()
+        private static async void Start()
         {
             NFTDataLeft = await SupabaseNFT.FetchRandomNFT();
             NFTDataRight = await SupabaseNFT.FetchRandomNFT();
@@ -32,9 +32,25 @@ namespace NftHigherOrLowerGame.Model
             GameTime.Start();
         }
 
-        private static void StopTimer() // Might Remove Functions
+        private static async void Continue()
         {
-            Points = GameTime.Stop();
+            GameTime.Reset();
+            NFTDataLeft = NFTDataRight;
+            NFTDataRight = NFTDataAlt;
+            NFTDataAlt = await SupabaseNFT.FetchRandomNFT();
+            await Task.Delay(4000);
+            AnswerDisplay.HideFeedBack();
+            await Task.WhenAll( // This Runs Both at Same Time to Sync Fades
+                NFTImageLeft.ChangeImage(NFTDataLeft),
+                NFTImageRight.ChangeImage(NFTDataRight)
+            );
+            NFTImageLeft.ShowPrice();
+            GameTime.Start();
+        }
+
+        private static void Stop() // Might Remove Functions
+        {
+            GameTime.Stop();
         }
 
         public static void GameOver()
@@ -45,57 +61,69 @@ namespace NftHigherOrLowerGame.Model
         // Buttons
         public static void Higher()
         {
-            StopTimer();
+            Stop();
             CheckAnswer(AnswerOptions.Higher);
         }
 
         public static void Lower()
         {
-            StopTimer();
+            Stop();
             CheckAnswer(AnswerOptions.Lower);
+        }
+
+        public static void OutOfTime()
+        {
+            CheckAnswer(AnswerOptions.OutOfTime);
         }
 
         public static void PauseMenu()
         {
-            StartTimer(); // Temp For Testing
+            Start(); // Temp For Testing
         }
 
         // Answer Checking
         private static void CheckAnswer(AnswerOptions answer)
         {
-            if (NFTDataLeft.priceUSD == NFTDataRight.priceUSD)
+            if (answer == AnswerOptions.OutOfTime)
             {
-                // If Same Price then Higher and Lower both Correct
-                CorrectAnswer();
-            }
-            else if (NFTDataLeft.priceUSD > NFTDataRight.priceUSD)
-            {
-                if (answer == AnswerOptions.Lower)
-                {
-                    CorrectAnswer();
-                }
-                else
-                {
-                    WrongAnswer();
-                }
-            }
-            else if (NFTDataLeft.priceUSD < NFTDataRight.priceUSD)
-            {
-                if (answer == AnswerOptions.Higher)
-                {
-                    CorrectAnswer();
-                }
-                else
-                {
-                    WrongAnswer();
-                }
+                NoAnswer();
             }
             else
             {
-                // Something went wrong if this happens
-                WrongAnswer();
+                if (NFTDataLeft.priceUSD == NFTDataRight.priceUSD)
+                {
+                    // If Same Price then Higher and Lower both Correct
+                    CorrectAnswer();
+                }
+                else if (NFTDataLeft.priceUSD > NFTDataRight.priceUSD)
+                {
+                    if (answer == AnswerOptions.Lower)
+                    {
+                        CorrectAnswer();
+                    }
+                    else
+                    {
+                        WrongAnswer();
+                    }
+                }
+                else if (NFTDataLeft.priceUSD < NFTDataRight.priceUSD)
+                {
+                    if (answer == AnswerOptions.Higher)
+                    {
+                        CorrectAnswer();
+                    }
+                    else
+                    {
+                        WrongAnswer();
+                    }
+                }
+                else
+                {
+                    // Something went wrong if this happens
+                    WrongAnswer();
+                }
+                Continue();
             }
-
         }
 
         private static void CorrectAnswer()
@@ -107,9 +135,19 @@ namespace NftHigherOrLowerGame.Model
 
         private static void WrongAnswer()
         {
-            Score.ScoreValue -= 1000;
+            NFTImageRight.ShowPrice();
+            Points = 1000 - Points;
+            Score.ScoreValue -= Points;
             Lives.LoseLife();
-            AnswerDisplay.Wrong("Lost 1 life and 1000 points");
+            AnswerDisplay.Wrong($"Lost 1 life and {Points} points");
+        }
+
+        private static void NoAnswer()
+        {
+            Points = 1000 - Points;
+            Score.ScoreValue -= Points;
+            Lives.LoseLife();
+            AnswerDisplay.OutOfTime($"Lost 1 life and {Points} points");
         }
 
 

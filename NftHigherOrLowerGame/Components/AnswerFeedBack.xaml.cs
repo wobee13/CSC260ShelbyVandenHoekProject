@@ -26,6 +26,14 @@ public partial class AnswerFeedBack : ContentView
         ShowFeedBack(500);
     }
 
+    public void OutOfTime(string message)
+    {
+        AnswerIcon.Source = "icons8_cancel.png";
+        AnswerLabel.Text = "Out of Time";
+        AnswerScore.Text = message;
+        ShowFeedBack(500);
+    }
+
     public void HideFeedBack(uint fadeTime = 250)
     {
         AnswerStack.FadeTo(0, fadeTime);

@@ -10,7 +10,7 @@ namespace NftHigherOrLowerGame.Model
 
         private static Client _Client;
 
-        private static int _NFTCount = 10000; // Fetch Actual Count Later 
+        private static int _NFTCount = 0; // Fetch Actual Count Later 
 
 
         static SupabaseNFT()

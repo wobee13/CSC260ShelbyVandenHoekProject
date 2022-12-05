@@ -15,8 +15,10 @@ public partial class NFTImage : ContentView
     {
         var im = Blurhasher.Decode(nft.BlurHash, 4, 4);
         var data = SKImage.FromBitmap(im).Encode();
-        ImageFrame.Opacity = 0;
+        await ImageFrame.FadeTo(0);
         PriceLabel.Opacity = 0;
+        NameLabel.Text = "";
+        PriceLabel.Text = "";
         Image.Source = ImageSource.FromStream(data.AsStream); //Blurhash Loaded
         await ImageFrame.FadeTo(1, 500);
         await Task.Delay(2000);
