@@ -110,6 +110,9 @@
 	  <MauiXaml Update="Components\GameTimer.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Components\PausePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Components\TopControls.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -141,6 +144,9 @@
 	  </Compile>
 	  <Compile Update="Components\NFTImage.xaml.cs">
 	    <DependentUpon>NFTImage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\PausePopup.xaml.cs">
+	    <DependentUpon>PausePopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 </Project>
