@@ -4,13 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:NftHigherOrLowerGame"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:pages="clr-namespace:NftHigherOrLowerGame.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:Pages.GamePage}"
-        Route="MainPage"
-        Shell.NavBarIsVisible="False" />
+        ContentTemplate="{DataTemplate pages:GamePage}"
+        Route="MainPage" />
+    <!--<TabBar>
+        <Tab Title="Home" Icon="home">
+            <ShellContent ContentTemplate="{DataTemplate pages:MainPage}" Route="Home" />
+        </Tab>
+        <Tab Title="Messages" Icon="messages">
+            <ShellContent ContentTemplate="{DataTemplate pages:GamePage}" Route="Messages" />
+        </Tab>
+        <Tab Title="Settings" Icon="settings">
+            <ShellContent ContentTemplate="{DataTemplate pages:SettingsPage}" Route="Settings" />
+        </Tab>
+    </TabBar>-->
 
 </Shell>
 

@@ -4,10 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components">
-    <FlexLayout JustifyContent="SpaceBetween">
-        <Components:ScoreBoard FlexLayout.Basis="20%" />
-        <Components:GameTimer FlexLayout.Basis="50%" />
-        <Components:LivesBoard FlexLayout.Basis="20%" />
-        <Components:PauseMenu FlexLayout.Basis="5%" />
-    </FlexLayout>
+    <Grid
+        ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*"
+        ColumnSpacing="0"
+        RowDefinitions="*">
+        <Components:ScoreBoard Grid.Column="0" Grid.ColumnSpan="2" />
+        <Components:GameTimer Grid.Column="3" Grid.ColumnSpan="5" />
+        <Components:LivesBoard Grid.Column="9" Grid.ColumnSpan="2" />
+    </Grid>
 </ContentView>

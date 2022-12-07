@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NftHigherOrLowerGame.Components.BottomControls">
-    <FlexLayout JustifyContent="SpaceEvenly">
-        <Button Text="Higher" FlexLayout.Basis="25%" Clicked="Higher_Button_Click"/>
-        <Button Text="OR" IsEnabled="False" FlexLayout.Basis="Auto"/>
-        <Button Text="Lower" FlexLayout.Basis="25%" Clicked="Lower_Button_Click"/>
-    </FlexLayout>
+<ContentView
+    x:Class="NftHigherOrLowerGame.Components.BottomControls"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components">
+    <Grid
+        ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*"
+        ColumnSpacing="0"
+        RowDefinitions="*">
+        <Button
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Clicked="Higher_Button_Click"
+            Text="Higher" />
+        <Button
+            Grid.Column="7"
+            CornerRadius="15"
+            IsEnabled="False"
+            Text="OR" />
+        <Button
+            Grid.Column="10"
+            Grid.ColumnSpan="3"
+            Clicked="Lower_Button_Click"
+            Text="Lower" />
+        <Components:PauseButton Grid.Column="14" />
+    </Grid>
 </ContentView>
+<!--  SSHHHSSOSSLLLSP  -->
+<!--  012345678901234  -->
+<!--  ***************  -->

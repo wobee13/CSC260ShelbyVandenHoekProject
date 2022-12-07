@@ -2,15 +2,15 @@ using NftHigherOrLowerGame.Model;
 
 namespace NftHigherOrLowerGame.Components;
 
-public partial class PauseMenu : ContentView
+public partial class PauseButton : ContentView
 {
-	public PauseMenu()
-	{
-		InitializeComponent();
-	}
+    public PauseButton()
+    {
+        InitializeComponent();
+    }
 
     private void Pause_Clicked(object sender, EventArgs e)
     {
-		Game.PauseMenu();
+        Game.PauseMenu();
     }
 }
