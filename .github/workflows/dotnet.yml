@@ -26,13 +26,13 @@ jobs:
     #- name: Install MAUI workload
     #  run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
     
-    - name: Package Cache
-      uses: actions/cache@v3
-      with:
-        path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
-        restore-keys: |
-          ${{ runner.os }}-nuget
+    #- name: Package Cache
+    #  uses: actions/cache@v3
+    #  with:
+    #    path: ~/.nuget/packages
+    #    key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
+    #    restore-keys: |
+    #      ${{ runner.os }}-nuget
     
     - name: Restore Packages
       run: dotnet restore
@@ -63,13 +63,13 @@ jobs:
       - name: Install MAUI workload
         run: dotnet workload install maui --source https://api.nuget.org/v3/index.json
     
-      - name: Package Cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget  
+    #  - name: Package Cache
+    #    uses: actions/cache@v3
+    #    with:
+    #      path: ~/.nuget/packages
+    #      key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj*') }}
+    #      restore-keys: |
+    #        ${{ runner.os }}-nuget  
     
       - name: Restore Packages
         run: dotnet restore
