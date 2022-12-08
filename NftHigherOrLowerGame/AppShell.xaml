@@ -10,7 +10,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate pages:GamePage}"
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
     <!--<TabBar>
         <Tab Title="Home" Icon="home">

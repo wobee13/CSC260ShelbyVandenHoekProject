@@ -19,7 +19,7 @@ namespace NftHigherOrLowerGame.Model
         public enum AnswerOptions { Higher, Lower, OutOfTime }
 
         // Game State
-        private static async void Start()
+        public static async void Start()
         {
             NFTDataLeft = await SupabaseNFT.FetchRandomNFT();
             NFTDataRight = await SupabaseNFT.FetchRandomNFT();
@@ -122,8 +122,8 @@ namespace NftHigherOrLowerGame.Model
                     // Something went wrong if this happens
                     WrongAnswer();
                 }
-                Continue();
             }
+            Continue();
         }
 
         private static void CorrectAnswer()
@@ -144,6 +144,7 @@ namespace NftHigherOrLowerGame.Model
 
         private static void NoAnswer()
         {
+            NFTImageRight.ShowPrice();
             Points = 1000 - Points;
             Score.ScoreValue -= Points;
             Lives.LoseLife();
