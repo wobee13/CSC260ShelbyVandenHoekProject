@@ -7,15 +7,14 @@
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
+            HorizontalOptions="CenterAndExpand"
             Spacing="25"
-            VerticalOptions="Center">
-
+            VerticalOptions="CenterAndExpand">
             <Label
                 FontSize="32"
                 HorizontalOptions="Center"
                 SemanticProperties.HeadingLevel="Level1"
                 Text="Welcome To NFT Higher Or Lower" />
-
             <Label
                 FontSize="18"
                 HorizontalOptions="Center"
@@ -26,11 +25,24 @@
                 x:Name="GameButton"
                 Clicked="GameButton_Clicked"
                 HorizontalOptions="Center"
+                MinimumWidthRequest="200"
                 Text="Play Game" />
-
-
+            <Button
+                Clicked="HighScoreButton_Clicked"
+                HorizontalOptions="Center"
+                MinimumWidthRequest="200"
+                Text="High Scores" />
+            <Button
+                Clicked="AboutButton_Clicked"
+                HorizontalOptions="Center"
+                MinimumWidthRequest="200"
+                Text="About" />
+            <Button
+                Clicked="SettingsButton_Clicked"
+                HorizontalOptions="Center"
+                MinimumWidthRequest="200"
+                Text="Settings" />
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
 

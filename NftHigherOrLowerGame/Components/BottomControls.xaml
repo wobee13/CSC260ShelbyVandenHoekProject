@@ -23,7 +23,7 @@
             Grid.ColumnSpan="3"
             Clicked="Lower_Button_Click"
             Text="Lower" />
-        <Components:PauseButton Grid.Column="14" />
+        <!--<Components:PauseButton Grid.Column="14" />-->
     </Grid>
 </ContentView>
 <!--  SSHHHSSOSSLLLSP  -->

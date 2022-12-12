@@ -31,6 +31,21 @@ public partial class MainPage : ContentPage
             await DisplayAlert("Connection Failed", "An internet connection is required to play the game", "OK");
         }
     }
+
+    private async void AboutButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("About");
+    }
+
+    private async void SettingsButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("Settings");
+    }
+
+    private async void HighScoreButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("HighScores");
+    }
 }
 
 
