@@ -4,7 +4,7 @@ namespace NftHigherOrLowerGame.Components;
 
 public partial class LivesBoard : ContentView
 {
-    private uint _LivesValue = 3;
+    private uint _LivesValue;
     public uint LivesValue
     {
         get { return _LivesValue; }

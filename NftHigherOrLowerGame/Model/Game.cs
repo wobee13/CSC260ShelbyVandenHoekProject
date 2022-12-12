@@ -61,6 +61,7 @@ namespace NftHigherOrLowerGame.Model
 
         public static async void GameOver()
         {
+            SupabaseClient.InsertHighScore(Results, Score.ScoreValue);
             await Shell.Current.GoToAsync("GameOver");
         }
 
@@ -191,9 +192,9 @@ namespace NftHigherOrLowerGame.Model
             NFTImageRight.ShowPrice();
             Points = 1000 - Points;
             Score.ScoreValue -= Points;
+            Results.TotalWrong += 1;
             Lives.LoseLife();
             AnswerDisplay.Wrong($"Lost 1 life and {Points} points");
-            Results.TotalWrong += 1;
         }
 
         private static void NoAnswer()
@@ -201,9 +202,9 @@ namespace NftHigherOrLowerGame.Model
             NFTImageRight.ShowPrice();
             Points = 1000 - Points;
             Score.ScoreValue -= Points;
+            Results.TotalWrong += 1;
             Lives.LoseLife();
             AnswerDisplay.OutOfTime($"Lost 1 life and {Points} points");
-            Results.TotalWrong += 1;
         }
 
 

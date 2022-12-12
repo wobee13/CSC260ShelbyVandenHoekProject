@@ -47,5 +47,21 @@ namespace NftHigherOrLowerGame.Model
             var nft = response.Models.First();
             return nft;
         }
+
+        public static async void InsertHighScore(Result result, int points)
+        {
+            var newHighScore = new HighScore
+            {
+                Name = Preferences.Default.Get("username", ""),
+                Correct = result.TotalRight,
+                Wrong = result.TotalWrong,
+                Total = result.TotalAnswered,
+                Points = points,
+                Mode = Preferences.Default.Get("currency", "USD")
+            };
+
+            //await _Client.Table<HighScore>().Insert(newHighScore);
+            await _Client.From<HighScore>().Insert(newHighScore);
+        }
     }
 }
