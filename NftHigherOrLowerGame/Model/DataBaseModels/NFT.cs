@@ -19,7 +19,7 @@ namespace NftHigherOrLowerGame.Model.DataBaseModels
         public string BlurHash { get; set; }
 
         [Column("priceEthereum")]
-        public double priceEth { get; set; }
+        public double priceETH { get; set; }
 
         [Column("priceUSD")]
         public double priceUSD { get; set; }

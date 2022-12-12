@@ -32,11 +32,11 @@
                 HorizontalOptions="Center"
                 MinimumWidthRequest="200"
                 Text="High Scores" />
-            <Button
+            <!--<Button
                 Clicked="AboutButton_Clicked"
                 HorizontalOptions="Center"
                 MinimumWidthRequest="200"
-                Text="About" />
+                Text="About" />-->
             <Button
                 Clicked="SettingsButton_Clicked"
                 HorizontalOptions="Center"

@@ -7,21 +7,33 @@
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False" />
     </Shell.BackButtonBehavior>
-    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        Spacing="10"
+        VerticalOptions="Center">
         <Label
+            FontSize="24"
             HorizontalOptions="Center"
             Text="Game Over"
             VerticalOptions="Center" />
         <Label
             x:Name="PointsLabel"
+            FontSize="14"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Label
             x:Name="CorrectLabel"
+            FontSize="14"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Label
             x:Name="WrongLabel"
+            FontSize="14"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Label
+            x:Name="TotalLabel"
+            FontSize="14"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Button Clicked="HomeButton_Clicked" Text="Return Home" />

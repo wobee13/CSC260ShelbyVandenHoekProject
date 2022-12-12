@@ -9,26 +9,30 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-    }
-
-    public void DisplayPopup()
-    {
-        var popup = new PausePopup();
-
-        this.ShowPopup(popup);
+        if (Preferences.Default.ContainsKey("currency") == false)
+        {
+            Preferences.Default.Set("currency", "USD");
+        }
     }
 
     private async void GameButton_Clicked(object sender, EventArgs e)
     {
         NetworkAccess accessType = Connectivity.Current.NetworkAccess;
-        if (accessType == NetworkAccess.Internet)
+        if (Preferences.Default.ContainsKey("username"))
         {
-            await Shell.Current.GoToAsync("Game");
-            Game.Start();
+            if (accessType == NetworkAccess.Internet)
+            {
+                await Shell.Current.GoToAsync("Game");
+                Game.Start();
+            }
+            else
+            {
+                await DisplayAlert("Connection Failed", "An internet connection is required to play the game", "OK");
+            }
         }
         else
         {
-            await DisplayAlert("Connection Failed", "An internet connection is required to play the game", "OK");
+            await DisplayAlert("Username not set", "Please go to settings and create a username.\nThis is used for the High Scores Leaderboard.", "OK");
         }
     }
 

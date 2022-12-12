@@ -3,7 +3,7 @@ using Supabase;
 
 namespace NftHigherOrLowerGame.Model
 {
-    public static class SupabaseNFT
+    public static class SupabaseClient
     {
         private const string url = "https://knddzfdbybulsywhyrvt.supabase.co";
         private const string anon_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuZGR6ZmRieWJ1bHN5d2h5cnZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDUyMDE1NDMsImV4cCI6MTk2MDc3NzU0M30.gruYB1hgInt484DqZ_0xP86cX0h0HzHc1HYFoYkrxU0";
@@ -13,7 +13,7 @@ namespace NftHigherOrLowerGame.Model
         private static int _NFTCount = 0; // Fetch Actual Count Later 
 
 
-        static SupabaseNFT()
+        static SupabaseClient()
         {
             _Client = new Client(url, anon_key);
             InitClient();

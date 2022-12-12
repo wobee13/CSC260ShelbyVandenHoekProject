@@ -1,5 +1,6 @@
 ﻿using NftHigherOrLowerGame.Components;
 using NftHigherOrLowerGame.Model.DataBaseModels;
+using NftHigherOrLowerGame.Model.Enums;
 
 namespace NftHigherOrLowerGame.Model
 {
@@ -18,15 +19,14 @@ namespace NftHigherOrLowerGame.Model
         private static NFTImage NFTImageLeft { get; set; }
         private static NFTImage NFTImageRight { get; set; }
 
-        public enum Side { Left, Right }
-        public enum AnswerOptions { Higher, Lower, OutOfTime }
+
 
         // Game State
         public static async void Start()
         {
-            NFTDataLeft = await SupabaseNFT.FetchRandomNFT();
-            NFTDataRight = await SupabaseNFT.FetchRandomNFT();
-            NFTDataAlt = await SupabaseNFT.FetchRandomNFT();
+            NFTDataLeft = await SupabaseClient.FetchRandomNFT();
+            NFTDataRight = await SupabaseClient.FetchRandomNFT();
+            NFTDataAlt = await SupabaseClient.FetchRandomNFT();
             await Task.WhenAll( // This Runs Both at Same Time to Sync Fades
                 NFTImageLeft.ChangeImage(NFTDataLeft),
                 NFTImageRight.ChangeImage(NFTDataRight)
@@ -41,7 +41,7 @@ namespace NftHigherOrLowerGame.Model
             GameTime.Reset();
             NFTDataLeft = NFTDataRight;
             NFTDataRight = NFTDataAlt;
-            NFTDataAlt = await SupabaseNFT.FetchRandomNFT();
+            NFTDataAlt = await SupabaseClient.FetchRandomNFT();
             await Task.Delay(4000);
             AnswerDisplay.HideFeedBack();
             await Task.WhenAll( // This Runs Both at Same Time to Sync Fades
@@ -53,10 +53,10 @@ namespace NftHigherOrLowerGame.Model
             TimerRunning = true;
         }
 
-        private static void Stop() // Might Remove Functions
+        private static void Stop()
         {
-            GameTime.Stop();
             TimerRunning = false;
+            GameTime.Stop();
         }
 
         public static async void GameOver()
@@ -70,7 +70,7 @@ namespace NftHigherOrLowerGame.Model
             if (TimerRunning)
             {
                 Stop();
-                CheckAnswer(AnswerOptions.Higher);
+                CheckAnswer(AnswerOption.Higher);
             }
         }
 
@@ -79,62 +79,100 @@ namespace NftHigherOrLowerGame.Model
             if (TimerRunning)
             {
                 Stop();
-                CheckAnswer(AnswerOptions.Lower);
+                CheckAnswer(AnswerOption.Lower);
             }
         }
 
         public static void OutOfTime()
         {
-            CheckAnswer(AnswerOptions.OutOfTime);
+            CheckAnswer(AnswerOption.OutOfTime);
             TimerRunning = false;
         }
 
         public static void PauseMenu()
         {
-            Start(); // Temp For Testing
+            //Start(); // Temp For Testing
         }
 
         // Answer Checking
-        private static void CheckAnswer(AnswerOptions answer)
+        private static void CheckAnswer(AnswerOption answer)
         {
             Results.TotalAnswered += 1;
-            if (answer == AnswerOptions.OutOfTime)
+            if (answer == AnswerOption.OutOfTime)
             {
                 NoAnswer();
             }
             else
             {
-                if (NFTDataLeft.priceUSD == NFTDataRight.priceUSD)
+                if (Preferences.Default.Get("currency", "USD") == "USD")
                 {
-                    // If Same Price then Higher and Lower both Correct
-                    CorrectAnswer();
-                }
-                else if (NFTDataLeft.priceUSD > NFTDataRight.priceUSD)
-                {
-                    if (answer == AnswerOptions.Lower)
+                    if (NFTDataLeft.priceUSD == NFTDataRight.priceUSD)
                     {
+                        // If Same Price then Higher and Lower both Correct
                         CorrectAnswer();
+                    }
+                    else if (NFTDataLeft.priceUSD > NFTDataRight.priceUSD)
+                    {
+                        if (answer == AnswerOption.Lower)
+                        {
+                            CorrectAnswer();
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                        }
+                    }
+                    else if (NFTDataLeft.priceUSD < NFTDataRight.priceUSD)
+                    {
+                        if (answer == AnswerOption.Higher)
+                        {
+                            CorrectAnswer();
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                        }
                     }
                     else
                     {
+                        // Something went wrong if this happens
                         WrongAnswer();
                     }
                 }
-                else if (NFTDataLeft.priceUSD < NFTDataRight.priceUSD)
+                else // Etherium Prices
                 {
-                    if (answer == AnswerOptions.Higher)
+                    if (NFTDataLeft.priceETH == NFTDataRight.priceETH)
                     {
+                        // If Same Price then Higher and Lower both Correct
                         CorrectAnswer();
+                    }
+                    else if (NFTDataLeft.priceETH > NFTDataRight.priceETH)
+                    {
+                        if (answer == AnswerOption.Lower)
+                        {
+                            CorrectAnswer();
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                        }
+                    }
+                    else if (NFTDataLeft.priceETH < NFTDataRight.priceETH)
+                    {
+                        if (answer == AnswerOption.Higher)
+                        {
+                            CorrectAnswer();
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                        }
                     }
                     else
                     {
+                        // Something went wrong if this happens
                         WrongAnswer();
                     }
-                }
-                else
-                {
-                    // Something went wrong if this happens
-                    WrongAnswer();
                 }
             }
             Continue();

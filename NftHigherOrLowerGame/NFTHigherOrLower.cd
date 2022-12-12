@@ -2,6 +2,9 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="NftHigherOrLowerGame.Model.Game">
     <Position X="4.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Enum Name="NftHigherOrLowerGame.Model.Game.Side" Collapsed="true">
         <TypeIdentifier>
@@ -15,7 +18,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAJIiACQIDAAwIgAABAKAAAAAAAAAADCJAAAAABAAAA=</HashCode>
+      <HashCode>BAJIiACQIDAAwIgAABAKAAAACAAAAADCJAAAAABAAAA=</HashCode>
       <FileName>Model\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -23,7 +26,7 @@
       <Property Name="AnswerDisplay" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="NftHigherOrLowerGame.Model.SupabaseNFT">
+  <Class Name="NftHigherOrLowerGame.Model.SupabaseClient">
     <Position X="0.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAQAAAAAAAAAAAIIBEEAAAAAAAAAAAQ=</HashCode>
@@ -65,13 +68,6 @@
       <FileName>Components\NFTImage.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NftHigherOrLowerGame.Components.PauseMenu" Collapsed="true">
-    <Position X="6.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Components\PauseMenu.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="NftHigherOrLowerGame.Components.PausePopup">
     <Position X="1" Y="5" Width="1.5" />
     <TypeIdentifier>
@@ -89,14 +85,14 @@
   <Class Name="NftHigherOrLowerGame.Components.TopControls" Collapsed="true">
     <Position X="6.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Components\TopControls.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NftHigherOrLowerGame.Pages.GamePage" Collapsed="true">
     <Position X="6.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\GamePage.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>

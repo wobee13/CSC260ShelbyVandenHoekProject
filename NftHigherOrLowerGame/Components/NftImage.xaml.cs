@@ -27,7 +27,14 @@ public partial class NFTImage : ContentView
         await ImageFrame.FadeTo(1, 500);
 
         NameLabel.Text = nft.Name;
-        PriceLabel.Text = $"${nft.priceUSD}";
+        if (Preferences.Default.Get("currency", "USD") == "USD")
+        {
+            PriceLabel.Text = $"$ {String.Format("{0:n}", nft.priceUSD)}";
+        }
+        else
+        {
+            PriceLabel.Text = $"{String.Format("{0:n}", nft.priceETH)} ETH";
+        }
         return true;
     }
 

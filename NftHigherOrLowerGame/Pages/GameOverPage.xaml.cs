@@ -8,8 +8,9 @@ public partial class GameOverPage : ContentPage
     {
         InitializeComponent();
         PointsLabel.Text = $"{Game.Score.ScoreValue} Points";
-        CorrectLabel.Text = $"{Game.Results.TotalRight / Game.Results.TotalAnswered} Answered Correctly";
-        WrongLabel.Text = $"{Game.Results.TotalWrong / Game.Results.TotalAnswered} Answered Wrong";
+        CorrectLabel.Text = $"{Game.Results.TotalRight} Answered Correctly";
+        WrongLabel.Text = $"{Game.Results.TotalWrong} Answered Wrong";
+        TotalLabel.Text = $"{Game.Results.TotalAnswered} Rounds Played";
     }
 
     private void HomeButton_Clicked(object sender, EventArgs e)
