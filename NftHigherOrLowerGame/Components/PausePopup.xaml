@@ -15,8 +15,9 @@
                 HorizontalOptions="Center"
                 Text="This is a very important message!"
                 VerticalOptions="End" />
+            <Button Text="Resume" />
+            <Button Text="Main Menu" />
         </VerticalStackLayout>
     </Frame>
 
 </toolkit:Popup>
-    

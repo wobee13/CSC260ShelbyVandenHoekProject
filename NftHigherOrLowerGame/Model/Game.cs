@@ -6,15 +6,18 @@ namespace NftHigherOrLowerGame.Model
     public static class Game
     {
         private static GameTimer GameTime { get; set; }
-        private static ScoreBoard Score { get; set; }
+        public static ScoreBoard Score { get; set; }
         private static LivesBoard Lives { get; set; }
         public static int Points { get; set; }
+        public static Result Results { get; set; } = new();
+        private static bool TimerRunning { get; set; } = false;
         private static AnswerFeedBack AnswerDisplay { get; set; }
         private static NFT NFTDataLeft { get; set; }
         private static NFT NFTDataRight { get; set; }
         private static NFT NFTDataAlt { get; set; } // Used to PreFetch Next NFT Data
         private static NFTImage NFTImageLeft { get; set; }
         private static NFTImage NFTImageRight { get; set; }
+
         public enum Side { Left, Right }
         public enum AnswerOptions { Higher, Lower, OutOfTime }
 
@@ -30,6 +33,7 @@ namespace NftHigherOrLowerGame.Model
             );
             NFTImageLeft.ShowPrice();
             GameTime.Start();
+            TimerRunning = true;
         }
 
         private static async void Continue()
@@ -46,34 +50,43 @@ namespace NftHigherOrLowerGame.Model
             );
             NFTImageLeft.ShowPrice();
             GameTime.Start();
+            TimerRunning = true;
         }
 
         private static void Stop() // Might Remove Functions
         {
             GameTime.Stop();
+            TimerRunning = false;
         }
 
-        public static void GameOver()
+        public static async void GameOver()
         {
-            throw new NotImplementedException();
+            await Shell.Current.GoToAsync("GameOver");
         }
 
         // Buttons
         public static void Higher()
         {
-            Stop();
-            CheckAnswer(AnswerOptions.Higher);
+            if (TimerRunning)
+            {
+                Stop();
+                CheckAnswer(AnswerOptions.Higher);
+            }
         }
 
         public static void Lower()
         {
-            Stop();
-            CheckAnswer(AnswerOptions.Lower);
+            if (TimerRunning)
+            {
+                Stop();
+                CheckAnswer(AnswerOptions.Lower);
+            }
         }
 
         public static void OutOfTime()
         {
             CheckAnswer(AnswerOptions.OutOfTime);
+            TimerRunning = false;
         }
 
         public static void PauseMenu()
@@ -84,6 +97,7 @@ namespace NftHigherOrLowerGame.Model
         // Answer Checking
         private static void CheckAnswer(AnswerOptions answer)
         {
+            Results.TotalAnswered += 1;
             if (answer == AnswerOptions.OutOfTime)
             {
                 NoAnswer();
@@ -131,6 +145,7 @@ namespace NftHigherOrLowerGame.Model
             NFTImageRight.ShowPrice();
             Score.ScoreValue += Points;
             AnswerDisplay.Correct($"Earned {Points} points");
+            Results.TotalRight += 1;
         }
 
         private static void WrongAnswer()
@@ -140,6 +155,7 @@ namespace NftHigherOrLowerGame.Model
             Score.ScoreValue -= Points;
             Lives.LoseLife();
             AnswerDisplay.Wrong($"Lost 1 life and {Points} points");
+            Results.TotalWrong += 1;
         }
 
         private static void NoAnswer()
@@ -149,6 +165,7 @@ namespace NftHigherOrLowerGame.Model
             Score.ScoreValue -= Points;
             Lives.LoseLife();
             AnswerDisplay.OutOfTime($"Lost 1 life and {Points} points");
+            Results.TotalWrong += 1;
         }
 
 

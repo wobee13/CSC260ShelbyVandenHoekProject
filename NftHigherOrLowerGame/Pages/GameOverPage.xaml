@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NftHigherOrLowerGame.Pages.GameOverPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="GameOverPage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False" />
+    </Shell.BackButtonBehavior>
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label
+            HorizontalOptions="Center"
+            Text="Game Over"
+            VerticalOptions="Center" />
+        <Label
+            x:Name="PointsLabel"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Label
+            x:Name="CorrectLabel"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Label
+            x:Name="WrongLabel"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <Button Clicked="HomeButton_Clicked" Text="Return Home" />
+    </VerticalStackLayout>
+</ContentPage>
