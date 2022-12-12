@@ -20,7 +20,7 @@
                 FontSize="18"
                 HorizontalOptions="Center"
                 SemanticProperties.HeadingLevel="Level2"
-                Text="The Game were you guess which NFT sold for more." />
+                Text="The Game were you guess which NFT sold for more" />
 
             <Button
                 x:Name="GameButton"
