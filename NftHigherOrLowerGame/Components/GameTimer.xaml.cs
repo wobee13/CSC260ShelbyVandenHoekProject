@@ -16,7 +16,7 @@ public partial class GameTimer : ContentView
         set
         {
             _TimerValue = value;
-            TimerLabel.Text = $"{TimeValue} Seconds {TimeValue * 50} Points Available";
+            TimerLabel.Text = $"{TimeValue} Seconds {TimeValue * PointsPerSecond} Points Available";
         }
     }
 
