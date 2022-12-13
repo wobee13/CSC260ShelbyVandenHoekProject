@@ -50,7 +50,17 @@ public partial class MainPage : ContentPage
 
     private async void HighScoreButton_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("HighScores");
+        NetworkAccess accessType = Connectivity.Current.NetworkAccess;
+        if (accessType == NetworkAccess.Internet)
+        {
+            await Shell.Current.GoToAsync("HighScores");
+
+            Game.Start();
+        }
+        else
+        {
+            await DisplayAlert("Connection Failed", "An internet connection is required to view High Scores", "OK");
+        }
     }
 }
 
