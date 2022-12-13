@@ -29,11 +29,11 @@ public partial class NFTImage : ContentView
         NameLabel.Text = nft.Name;
         if (Preferences.Default.Get("currency", "USD") == "USD")
         {
-            PriceLabel.Text = $"$ {String.Format("{0:n}", nft.priceUSD)}";
+            PriceLabel.Text = $"$ {String.Format("{0:n}", nft.PriceUSD)}";
         }
         else
         {
-            PriceLabel.Text = $"{String.Format("{0:n}", nft.priceETH)} ETH";
+            PriceLabel.Text = $"{String.Format("{0:n}", nft.PriceETH)} ETH";
         }
         return true;
     }

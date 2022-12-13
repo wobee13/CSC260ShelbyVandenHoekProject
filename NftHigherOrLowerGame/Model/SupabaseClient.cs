@@ -55,7 +55,7 @@ namespace NftHigherOrLowerGame.Model
                 Id = Guid.NewGuid().ToString(),
                 Name = Preferences.Default.Get("username", ""),
                 CreatedAt = DateTime.UtcNow.ToString(),
-                Correct = result.TotalRight,
+                Correct = result.TotalCorrect,
                 Wrong = result.TotalWrong,
                 Total = result.TotalAnswered,
                 Points = points,
@@ -65,6 +65,7 @@ namespace NftHigherOrLowerGame.Model
 
             await _Client.From<HighScore>().Insert(newHighScore);
         }
+
         public static async Task<List<HighScore>> FetchTop100Scores()
         {
             var response = await _Client.From<HighScore>().Order("points", Postgrest.Constants.Ordering.Descending).Limit(100).Get();

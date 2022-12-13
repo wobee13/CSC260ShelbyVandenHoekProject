@@ -5,20 +5,8 @@
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="NftHigherOrLowerGame.Model.Game.Side" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Model\Game.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="NftHigherOrLowerGame.Model.Game.AnswerOptions" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Model\Game.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>BAJIiACQIDAAwIgAABAKAAAACAAAAADCJAAAAABAAAA=</HashCode>
+      <HashCode>BAJIiACQIDAAgIgAABAKAAAACAAAAADCJAAAAABAAAA=</HashCode>
       <FileName>Model\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -29,18 +17,18 @@
   <Class Name="NftHigherOrLowerGame.Model.SupabaseClient">
     <Position X="0.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAQAAAAAAAAAAAIIBEEAAAAAAAAAAAQ=</HashCode>
-      <FileName>Model\SupabaseNFT.cs</FileName>
+      <HashCode>AAAAAAAAACAAAAQgAAAAAAAAAAIIBEEAAAAACAAAAAQ=</HashCode>
+      <FileName>Model\SupabaseClient.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NftHigherOrLowerGame.Model.DataBaseModels.NFT" Collapsed="true">
-    <Position X="7.25" Y="4.5" Width="1.5" />
+  <Class Name="NftHigherOrLowerGame.Model.DataBaseModels.NFT">
+    <Position X="6.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACQAAAAAAAAAAAgAAIAAQAAAAAAIAAEAAIAAAAAAA=</HashCode>
+      <HashCode>AAACQAAAAAAAAAAAgAAIAAQAAAAAAIAAAAAIAAAAABA=</HashCode>
       <FileName>Model\DataBaseModels\NFT.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NftHigherOrLowerGame.Components.AnswerFeedBack" Collapsed="true">
+  <Class Name="NftHigherOrLowerGame.Components.AnswerFeedBack">
     <Position X="8.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAACAAAAABAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
@@ -57,7 +45,7 @@
   <Class Name="NftHigherOrLowerGame.Components.GameTimer">
     <Position X="8.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAACAABAAAAgAAABAAMAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAACAABAAAAgAAABAAMAAAAAAAIAAAAAAAAAI=</HashCode>
       <FileName>Components\GameTimer.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,13 +54,6 @@
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAABAAAAAABAAQAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Components\NFTImage.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="NftHigherOrLowerGame.Components.PausePopup">
-    <Position X="1" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Components\PausePopup.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NftHigherOrLowerGame.Components.ScoreBoard">
@@ -90,9 +71,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="NftHigherOrLowerGame.Pages.GamePage" Collapsed="true">
-    <Position X="6.5" Y="3.75" Width="1.5" />
+    <Position X="6.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\GamePage.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -103,5 +84,12 @@
       <FileName>Components\LivesBoard.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Enum Name="NftHigherOrLowerGame.Model.Enums.AnswerOption">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Model\Enums\AnswerOption.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

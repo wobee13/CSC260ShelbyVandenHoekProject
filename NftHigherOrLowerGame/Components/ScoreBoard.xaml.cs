@@ -4,7 +4,7 @@ namespace NftHigherOrLowerGame.Components;
 
 public partial class ScoreBoard : ContentView
 {
-    private int _ScoreValue = 0;
+    private int _ScoreValue;
     public int ScoreValue
     {
         get { return _ScoreValue; }

@@ -12,28 +12,28 @@
         Spacing="10"
         VerticalOptions="Center">
         <Label
-            FontSize="24"
+            FontSize="32"
             HorizontalOptions="Center"
             Text="Game Over"
             VerticalOptions="Center" />
         <Label
             x:Name="PointsLabel"
-            FontSize="14"
+            FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Label
             x:Name="CorrectLabel"
-            FontSize="14"
+            FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Label
             x:Name="WrongLabel"
-            FontSize="14"
+            FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Label
             x:Name="TotalLabel"
-            FontSize="14"
+            FontSize="18"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
         <Button Clicked="HomeButton_Clicked" Text="Return Home" />

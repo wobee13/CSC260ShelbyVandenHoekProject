@@ -9,7 +9,7 @@ namespace NftHigherOrLowerGame.Model.Binding
         public int Score { get; set; }
         public int Correct { get; set; }
         public int Wrong { get; set; }
-        [DisplayName("Rounds Survived")]
+        [DisplayName("Rounds Played")]
         public int TotalRounds { get; set; }
         public string Mode { get; set; }
         public string Difficulty { get; set; }

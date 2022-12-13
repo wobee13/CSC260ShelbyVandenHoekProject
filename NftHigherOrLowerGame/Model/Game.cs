@@ -90,11 +90,6 @@ namespace NftHigherOrLowerGame.Model
             TimerRunning = false;
         }
 
-        public static void PauseMenu()
-        {
-            //Start(); // Temp For Testing
-        }
-
         // Answer Checking
         private static void CheckAnswer(AnswerOption answer)
         {
@@ -107,12 +102,12 @@ namespace NftHigherOrLowerGame.Model
             {
                 if (Preferences.Default.Get("currency", "USD") == "USD")
                 {
-                    if (NFTDataLeft.priceUSD == NFTDataRight.priceUSD)
+                    if (NFTDataLeft.PriceUSD == NFTDataRight.PriceUSD)
                     {
                         // If Same Price then Higher and Lower both Correct
                         CorrectAnswer();
                     }
-                    else if (NFTDataLeft.priceUSD > NFTDataRight.priceUSD)
+                    else if (NFTDataLeft.PriceUSD > NFTDataRight.PriceUSD)
                     {
                         if (answer == AnswerOption.Lower)
                         {
@@ -123,7 +118,7 @@ namespace NftHigherOrLowerGame.Model
                             WrongAnswer();
                         }
                     }
-                    else if (NFTDataLeft.priceUSD < NFTDataRight.priceUSD)
+                    else if (NFTDataLeft.PriceUSD < NFTDataRight.PriceUSD)
                     {
                         if (answer == AnswerOption.Higher)
                         {
@@ -142,12 +137,12 @@ namespace NftHigherOrLowerGame.Model
                 }
                 else // Etherium Prices
                 {
-                    if (NFTDataLeft.priceETH == NFTDataRight.priceETH)
+                    if (NFTDataLeft.PriceETH == NFTDataRight.PriceETH)
                     {
                         // If Same Price then Higher and Lower both Correct
                         CorrectAnswer();
                     }
-                    else if (NFTDataLeft.priceETH > NFTDataRight.priceETH)
+                    else if (NFTDataLeft.PriceETH > NFTDataRight.PriceETH)
                     {
                         if (answer == AnswerOption.Lower)
                         {
@@ -158,7 +153,7 @@ namespace NftHigherOrLowerGame.Model
                             WrongAnswer();
                         }
                     }
-                    else if (NFTDataLeft.priceETH < NFTDataRight.priceETH)
+                    else if (NFTDataLeft.PriceETH < NFTDataRight.PriceETH)
                     {
                         if (answer == AnswerOption.Higher)
                         {
@@ -191,7 +186,7 @@ namespace NftHigherOrLowerGame.Model
             NFTImageRight.ShowPrice();
             Score.ScoreValue += Points;
             AnswerDisplay.Correct($"Earned {Points} points");
-            Results.TotalRight += 1;
+            Results.TotalCorrect += 1;
         }
 
         private static void WrongAnswer()

@@ -8,9 +8,4 @@ public partial class TopControls : ContentView
     {
         InitializeComponent();
     }
-
-    private void PauseButton_Clicked(object sender, EventArgs e)
-    {
-        Game.PauseMenu();
-    }
 }

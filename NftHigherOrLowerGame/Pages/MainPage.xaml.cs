@@ -54,8 +54,6 @@ public partial class MainPage : ContentPage
         if (accessType == NetworkAccess.Internet)
         {
             await Shell.Current.GoToAsync("HighScores");
-
-            Game.Start();
         }
         else
         {

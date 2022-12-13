@@ -4,9 +4,9 @@ namespace NftHigherOrLowerGame.Components;
 
 public partial class GameTimer : ContentView
 {
-    public uint StartTime;
+    public uint StartTime { get; set; }
     private uint _TimerValue;
-    public int PointsPerSecond;
+    public int PointsPerSecond { get; set; }
     private bool _TimerRunning = false;
     private PeriodicTimer _TimerInstance;
 

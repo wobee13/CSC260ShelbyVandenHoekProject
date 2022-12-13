@@ -11,6 +11,6 @@ public partial class PauseButton : ContentView
 
     private void Pause_Clicked(object sender, EventArgs e)
     {
-        Game.PauseMenu();
+        //Game.PauseMenu();
     }
 }
