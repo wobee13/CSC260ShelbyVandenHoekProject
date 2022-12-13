@@ -12,6 +12,7 @@ namespace NftHigherOrLowerGame.Model.Binding
         [DisplayName("Rounds Survived")]
         public int TotalRounds { get; set; }
         public string Mode { get; set; }
+        public string Difficulty { get; set; }
         public string Date { get; set; }
 
         public HighScoreRowData(HighScore hs)
@@ -22,6 +23,7 @@ namespace NftHigherOrLowerGame.Model.Binding
             Wrong = hs.Wrong;
             TotalRounds = hs.Total;
             Mode = hs.Mode;
+            Difficulty = hs.Difficulty;
             Date = DateTime.Parse(hs.CreatedAt).ToShortDateString();
         }
     }

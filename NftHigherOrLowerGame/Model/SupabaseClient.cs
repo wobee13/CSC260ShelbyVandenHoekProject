@@ -59,7 +59,8 @@ namespace NftHigherOrLowerGame.Model
                 Wrong = result.TotalWrong,
                 Total = result.TotalAnswered,
                 Points = points,
-                Mode = Preferences.Default.Get("currency", "USD")
+                Mode = Preferences.Default.Get("currency", "USD"),
+                Difficulty = Preferences.Default.Get("difficulty", "Easy")
             };
 
             await _Client.From<HighScore>().Insert(newHighScore);

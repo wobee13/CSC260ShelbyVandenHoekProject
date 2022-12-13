@@ -13,14 +13,15 @@
             <Label
                 FontSize="32"
                 HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
                 Text="Welcome To NFT Higher Or Lower" />
             <Label
                 FontSize="18"
                 HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level2"
                 Text="The Game were you guess which NFT sold for more" />
-
+            <Label
+                FontSize="14"
+                HorizontalOptions="Center"
+                Text="By Shelby VandenHoek" />
             <Button
                 x:Name="GameButton"
                 Clicked="GameButton_Clicked"

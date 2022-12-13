@@ -16,6 +16,8 @@
             HorizontalOptions="Center"
             ItemsSource="{Binding HighScoreItems}"
             UseAutoColumns="True"
-            VerticalOptions="Center" />
+            VerticalOptions="Center">
+            <ActivityIndicator Margin="40" IsRunning="{Binding IsBusy}" />
+        </controls:DataGrid>
     </VerticalStackLayout>
 </ContentPage>

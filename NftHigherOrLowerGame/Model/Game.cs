@@ -190,7 +190,7 @@ namespace NftHigherOrLowerGame.Model
         private static void WrongAnswer()
         {
             NFTImageRight.ShowPrice();
-            Points = 1000 - Points;
+            Points = (GameTime.PointsPerSecond * (int)GameTime.StartTime) - Points;
             Score.ScoreValue -= Points;
             Results.TotalWrong += 1;
             Lives.LoseLife();
@@ -200,7 +200,7 @@ namespace NftHigherOrLowerGame.Model
         private static void NoAnswer()
         {
             NFTImageRight.ShowPrice();
-            Points = 1000 - Points;
+            Points = (GameTime.PointsPerSecond * (int)GameTime.StartTime) - Points;
             Score.ScoreValue -= Points;
             Results.TotalWrong += 1;
             Lives.LoseLife();

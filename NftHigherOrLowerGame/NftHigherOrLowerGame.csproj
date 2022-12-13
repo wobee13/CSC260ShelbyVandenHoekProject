@@ -95,6 +95,12 @@
 	  <MauiXaml Update="Components\BottomControls.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Components\CurrencyRadioGroup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Components\DifficultyPicker.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Components\LivesBoard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -144,6 +150,9 @@
 	<ItemGroup>
 	  <Compile Update="Components\AnswerFeedBack.xaml.cs">
 	    <DependentUpon>AnswerFeedBack.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Components\DifficultyPicker.xaml.cs">
+	    <DependentUpon>DifficultyPicker.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Components\GameTimer.xaml.cs">
 	    <DependentUpon>GameTimer.xaml</DependentUpon>

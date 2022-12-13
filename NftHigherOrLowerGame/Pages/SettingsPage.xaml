@@ -3,6 +3,7 @@
     x:Class="NftHigherOrLowerGame.Pages.SettingsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Components="clr-namespace:NftHigherOrLowerGame.Components"
     Title="SettingsPage">
     <VerticalStackLayout
         HorizontalOptions="CenterAndExpand"
@@ -32,22 +33,7 @@
                 Placeholder="Enter a User Name"
                 VerticalOptions="Center" />
         </StackLayout>
-        <StackLayout
-            HorizontalOptions="Center"
-            MinimumWidthRequest="200"
-            Spacing="10"
-            VerticalOptions="Center">
-            <Label Text="Currency:" />
-            <RadioButton
-                x:Name="USDRadio"
-                CheckedChanged="USDRadio_CheckedChanged"
-                Content="US Dollars"
-                GroupName="Currency" />
-            <RadioButton
-                x:Name="EthRadio"
-                CheckedChanged="EthRadio_CheckedChanged"
-                Content="Ethereum"
-                GroupName="Currency" />
-        </StackLayout>
+        <Components:CurrencyRadioGroup />
+        <Components:DifficultyPicker />
     </VerticalStackLayout>
 </ContentPage>

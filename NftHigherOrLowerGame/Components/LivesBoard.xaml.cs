@@ -27,7 +27,19 @@ public partial class LivesBoard : ContentView
     public LivesBoard()
     {
         InitializeComponent();
-        LivesValue = 3;
+        if (Preferences.Default.Get("difficulty", "Easy") == "Easy")
+        {
+            LivesValue = 7;
+        }
+        else if (Preferences.Default.Get("difficulty", "Normal") == "Normal")
+        {
+            LivesValue = 5;
+        }
+        else
+        {
+            LivesValue = 3;
+        }
+
         Game.RegistererLivesBoard(this);
     }
 

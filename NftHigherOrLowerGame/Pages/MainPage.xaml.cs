@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Maui.Views;
-using NftHigherOrLowerGame.Components;
-using NftHigherOrLowerGame.Model;
+﻿using NftHigherOrLowerGame.Model;
 
 namespace NftHigherOrLowerGame.Pages;
 
@@ -12,6 +10,10 @@ public partial class MainPage : ContentPage
         if (Preferences.Default.ContainsKey("currency") == false)
         {
             Preferences.Default.Set("currency", "USD");
+        }
+        if (Preferences.Default.ContainsKey("difficulty") == false)
+        {
+            Preferences.Default.Set("difficulty", "Easy");
         }
     }
 

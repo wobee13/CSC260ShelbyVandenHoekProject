@@ -1,8 +1,4 @@
-using NftHigherOrLowerGame.Model;
 using NftHigherOrLowerGame.Model.Binding;
-using NftHigherOrLowerGame.Model.DataBaseModels;
-using System.Collections.ObjectModel;
-using UraniumUI.Material.Controls;
 
 namespace NftHigherOrLowerGame.Pages;
 

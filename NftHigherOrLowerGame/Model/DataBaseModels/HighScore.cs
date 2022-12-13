@@ -30,6 +30,9 @@ namespace NftHigherOrLowerGame.Model.DataBaseModels
         [Column("mode")]
         public string Mode { get; set; }
 
+        [Column("difficulty")]
+        public string Difficulty { get; set; }
+
         public override bool Equals(object obj)
         {
             return obj is HighScore highscore && Id == highscore.Id;

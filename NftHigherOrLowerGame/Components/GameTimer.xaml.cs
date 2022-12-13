@@ -4,8 +4,9 @@ namespace NftHigherOrLowerGame.Components;
 
 public partial class GameTimer : ContentView
 {
-    private const uint _StartTime = 20;
-    private uint _TimerValue = _StartTime;
+    public uint StartTime;
+    private uint _TimerValue;
+    public int PointsPerSecond;
     private bool _TimerRunning = false;
     private PeriodicTimer _TimerInstance;
 
@@ -22,14 +23,29 @@ public partial class GameTimer : ContentView
     public GameTimer()
     {
         InitializeComponent();
+        if (Preferences.Default.Get("difficulty", "Easy") == "Easy")
+        {
+            StartTime = 20;
+            PointsPerSecond = 50;
+        }
+        else if (Preferences.Default.Get("difficulty", "Normal") == "Normal")
+        {
+            StartTime = 10;
+            PointsPerSecond = 200;
+        }
+        else
+        {
+            StartTime = 5;
+            PointsPerSecond = 500;
+        }
         Game.RegisterTimer(this);
     }
 
     public async void Reset()
     {
         await Task.WhenAll(
-        TimerBar.ProgressTo(1, 500, Easing.SinInOut),
-        TimerLabel.FadeTo(0, 500)
+            TimerBar.ProgressTo(1, 500, Easing.SinInOut),
+            TimerLabel.FadeTo(0, 500)
         );
     }
 
@@ -39,12 +55,12 @@ public partial class GameTimer : ContentView
         {
             _TimerRunning = true;
             _TimerInstance = new PeriodicTimer(TimeSpan.FromSeconds(1));
-            TimeValue = _StartTime;
+            TimeValue = StartTime;
             _ = TimerLabel.FadeTo(1, 500);
             while (await _TimerInstance.WaitForNextTickAsync())
             {
                 TimeValue -= 1;
-                _ = TimerBar.ProgressTo(((double)TimeValue / (double)_StartTime), 1000, Easing.SinInOut);
+                _ = TimerBar.ProgressTo(((double)TimeValue / (double)StartTime), 1000, Easing.SinInOut);
                 if (TimeValue == 0)
                 {
                     Stop();
@@ -57,7 +73,7 @@ public partial class GameTimer : ContentView
 
     public void Stop()
     {
-        Game.Points = (int)TimeValue * 50;
+        Game.Points = (int)(TimeValue) * PointsPerSecond;
         if (_TimerInstance != null)
         {
             _TimerInstance.Dispose();

@@ -1,5 +1,4 @@
-﻿using NftHigherOrLowerGame.Model.DataBaseModels;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace NftHigherOrLowerGame.Model.Binding;
 
