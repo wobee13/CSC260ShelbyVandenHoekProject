@@ -64,5 +64,11 @@ namespace NftHigherOrLowerGame.Model
 
             await _Client.From<HighScore>().Insert(newHighScore);
         }
+        public static async Task<List<HighScore>> FetchTop100Scores()
+        {
+            var response = await _Client.From<HighScore>().Order("points", Postgrest.Constants.Ordering.Descending).Limit(100).Get();
+            var scores = response.Models;
+            return scores;
+        }
     }
 }

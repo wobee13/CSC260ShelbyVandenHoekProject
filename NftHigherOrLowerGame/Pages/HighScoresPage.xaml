@@ -3,11 +3,19 @@
     x:Class="NftHigherOrLowerGame.Pages.HighScoresPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:UraniumUI.Material.Controls;assembly=UraniumUI.Material"
     Title="HighScoresPage">
     <VerticalStackLayout>
         <Label
+            FontSize="24"
             HorizontalOptions="Center"
             Text="High Scores"
+            VerticalOptions="Center" />
+        <controls:DataGrid
+            Margin="30"
+            HorizontalOptions="Center"
+            ItemsSource="{Binding HighScoreItems}"
+            UseAutoColumns="True"
             VerticalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
