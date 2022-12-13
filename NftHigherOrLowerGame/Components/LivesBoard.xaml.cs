@@ -10,14 +10,7 @@ public partial class LivesBoard : ContentView
         get { return _LivesValue; }
         set
         {
-            if (value == 0)
-            {
-                _LivesValue = value; Game.GameOver();
-            }
-            else
-            {
-                _LivesValue = value;
-            }
+            _LivesValue = value;
             string livesHearts = "";
             for (int i = 0; i < LivesValue; i++) { livesHearts += "❤"; }
             LivesButton.Text = $"Lives: {livesHearts}";

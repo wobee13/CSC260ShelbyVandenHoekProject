@@ -59,7 +59,7 @@ namespace NftHigherOrLowerGame.Model
             GameTime.Stop();
         }
 
-        public static async void GameOver()
+        private static async void GameOver()
         {
             SupabaseClient.InsertHighScore(Results, Score.ScoreValue);
             await Shell.Current.GoToAsync("GameOver");
@@ -176,7 +176,14 @@ namespace NftHigherOrLowerGame.Model
                     }
                 }
             }
-            Continue();
+            if (Lives.LivesValue > 0)
+            {
+                Continue();
+            }
+            else
+            {
+                GameOver();
+            }
         }
 
         private static void CorrectAnswer()
