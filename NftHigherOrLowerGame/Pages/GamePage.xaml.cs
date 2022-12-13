@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Maui.Views;
-using NftHigherOrLowerGame.Components;
-using NftHigherOrLowerGame.Model;
+﻿using NftHigherOrLowerGame.Model;
 using NftHigherOrLowerGame.Model.Enums;
 
 namespace NftHigherOrLowerGame.Pages;
@@ -14,10 +12,4 @@ public partial class GamePage : ContentPage
         Game.RegisterNFTImage(RightNFT, Side.Right);
     }
 
-    public void DisplayPauseMenu()
-    {
-        var popup = new PausePopup();
-
-        this.ShowPopup(popup);
-    }
 }

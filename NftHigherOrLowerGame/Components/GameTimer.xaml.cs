@@ -4,7 +4,7 @@ namespace NftHigherOrLowerGame.Components;
 
 public partial class GameTimer : ContentView
 {
-    private const uint _StartTime = 20;
+    private const uint _StartTime = 5;
     private uint _TimerValue = _StartTime;
     private bool _TimerRunning = false;
     private PeriodicTimer _TimerInstance;

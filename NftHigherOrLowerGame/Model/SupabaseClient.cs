@@ -52,7 +52,9 @@ namespace NftHigherOrLowerGame.Model
         {
             var newHighScore = new HighScore
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = Preferences.Default.Get("username", ""),
+                CreatedAt = DateTime.UtcNow.ToString(),
                 Correct = result.TotalRight,
                 Wrong = result.TotalWrong,
                 Total = result.TotalAnswered,
@@ -60,7 +62,6 @@ namespace NftHigherOrLowerGame.Model
                 Mode = Preferences.Default.Get("currency", "USD")
             };
 
-            //await _Client.Table<HighScore>().Insert(newHighScore);
             await _Client.From<HighScore>().Insert(newHighScore);
         }
     }

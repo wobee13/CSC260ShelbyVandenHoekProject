@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using UraniumUI;
 
 namespace NftHigherOrLowerGame;
 public static class MauiProgram
@@ -10,7 +11,10 @@ public static class MauiProgram
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-        }).UseMauiCommunityToolkit();
+        }).UseMauiCommunityToolkit().ConfigureMauiHandlers(handlers =>
+        {
+            handlers.AddUraniumUIHandlers(); // 👈 This line should be added.
+        });
         return builder.Build();
     }
 }

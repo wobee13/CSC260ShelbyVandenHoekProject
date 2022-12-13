@@ -7,10 +7,10 @@ namespace NftHigherOrLowerGame.Model.DataBaseModels
     public class HighScore : BaseModel
     {
         [PrimaryKey("id")]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Column("created_at")]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
 
         [Column("name")]
         public string Name { get; set; }

@@ -110,9 +110,6 @@
 	  <MauiXaml Update="Components\GameTimer.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Components\PausePopup.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Components\TopControls.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -137,12 +134,12 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Blurhash.SkiaSharp" Version="2.0.0" />
-	  <PackageReference Include="CommunityToolkit.Maui" Version="2.0.0" />
 	  <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.0">
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	    <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
 	  <PackageReference Include="supabase-csharp" Version="0.6.2" />
+	  <PackageReference Include="UraniumUI.Material" Version="1.1.1" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Components\AnswerFeedBack.xaml.cs">
@@ -159,9 +156,6 @@
 	  </Compile>
 	  <Compile Update="Components\PauseButton.xaml.cs">
 	    <DependentUpon>PauseButton.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Components\PausePopup.xaml.cs">
-	    <DependentUpon>PausePopup.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 </Project>
