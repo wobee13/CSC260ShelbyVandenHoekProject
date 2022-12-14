@@ -24,9 +24,9 @@ namespace NftHigherOrLowerGame.Model
         // Game State
         public static async void Start()
         {
-            NFTDataLeft = await SupabaseClient.FetchRandomNFT();
-            NFTDataRight = await SupabaseClient.FetchRandomNFT();
-            NFTDataAlt = await SupabaseClient.FetchRandomNFT();
+            NFTDataLeft = await SupabaseClient.FetchNFT();
+            NFTDataRight = await SupabaseClient.FetchNFT();
+            NFTDataAlt = await SupabaseClient.FetchNFT();
             await Task.WhenAll( // This Runs Both at Same Time to Sync Fades
                 NFTImageLeft.ChangeImage(NFTDataLeft),
                 NFTImageRight.ChangeImage(NFTDataRight)
@@ -41,7 +41,7 @@ namespace NftHigherOrLowerGame.Model
             GameTime.Reset();
             NFTDataLeft = NFTDataRight;
             NFTDataRight = NFTDataAlt;
-            NFTDataAlt = await SupabaseClient.FetchRandomNFT();
+            NFTDataAlt = await SupabaseClient.FetchNFT();
             await Task.Delay(4000);
             AnswerDisplay.HideFeedBack();
             await Task.WhenAll( // This Runs Both at Same Time to Sync Fades

@@ -30,7 +30,7 @@ namespace NftHigherOrLowerGame.Model
             return true;
         }
 
-        public static async Task<NFT> FetchRandomNFT()
+        public static async Task<NFT> FetchNFT()
         {
             if (_NFTCount == 0) { await FetchNFTCount(); }
             int id = Random.Shared.Next(_NFTCount);
@@ -39,7 +39,7 @@ namespace NftHigherOrLowerGame.Model
             return nft;
         }
 
-        public static async Task<NFT> FetchNFTId(int id)
+        public static async Task<NFT> FetchNFT(int id)
         {
             if (_NFTCount == 0) { await FetchNFTCount(); }
             if (id > _NFTCount || id < 1) { id = Random.Shared.Next(_NFTCount); }
